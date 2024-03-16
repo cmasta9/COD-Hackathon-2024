@@ -6,4 +6,5 @@ Disgotchi is our project and is a virtual pet for the members of the discord ser
 
 ## Contributers
 
-- [@Squidysquid1](https://github.com/Squidysquid1) 
+- [@Squidysquid1](https://github.com/Squidysquid1)
+- [@cmasta9](https://github.com/cmasta9)
