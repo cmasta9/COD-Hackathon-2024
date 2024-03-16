@@ -1,0 +1,26 @@
+{
+  "name": "disgotchi",
+  "version": "0.0.1",
+  "description": "pet simulator discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "n"
+  },
+  "keywords": [
+    "pet",
+    "simulator",
+    "bot",
+    "discord"
+  ],
+  "author": "multi",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@keyv/sqlite": "^3.6.7",
+    "discord.js": "^14.14.1",
+    "keyv": "^4.5.4"
+  }
+}

@@ -1,0 +1,16 @@
++ DONE
+- NOT DONE
+
+- Busy
+- Play
+
+
++ Alive
++ level
++ gatherRsc
++ Adopt (If the user already has a pet)
++ cleanliness
++ Sleep 
++ Show
++ Feed
++ Hydrate

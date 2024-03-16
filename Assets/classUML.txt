@@ -1,0 +1,28 @@
+Animal
+    Atributes
+- busy : Boolean
+- timeBusy: DateTime (UTC)
+-/+ happiness: Integer (0 - 10)
++ hunger: Integer (0 - 10)
++ thirst: Integer (0 - 10)
+- energy: Integer (0 - 100)
+- cleanliness: Integer (0 - 10)
+- xp: Integer ( 0 - no cap)
+- level: Integer ( 0 - 10?)
+- Alive(?): Boolean ( if all attributes go down to zero, it runs away and find a new home)
+
+    Commands
++ show: String()
+- play: String(Ball, puzzle, toys...)
++ feed (amnt: Integer)
++ hydrate (amnt: Integer)
+- gatherRsc (type: String (food, water), time: minutes)
+- clean()
++ new (petName: String)
+- donatePet ()
+
+
+
+
+
+
