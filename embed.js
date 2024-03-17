@@ -3,8 +3,7 @@ const { pets } = require('./database.js');
 
 async function embed(interaction){
     const userID = interaction.user.id;
-    var pet;
-    pet = await pets.get(userID.toString());
+    const pet = await pets.get(userID);
 
     // Choose picture
     let petPicturePath = `Assets/${pet.type}/`;
@@ -22,6 +21,11 @@ async function embed(interaction){
     
     const petPicture = new AttachmentBuilder(petPicturePath + petPictureFile);
 
+    let busy = Math.round((pet.cooldown - Date.now())/1000);
+    if(busy < 0){
+        busy = 0;
+    }
+
     //Build embed
     const petEmbed = new EmbedBuilder()
 	.setColor(0x1100EE)
@@ -29,7 +33,7 @@ async function embed(interaction){
 	.addFields(
         { name: "Exp", value: `${pet.exp}`, inline: true},
 		{ name: 'Level', value: `${pet.lvl}`, inline: true},
-        { name: "busy", value: `${pet.busy}`, inline: true},
+        { name: "busy", value: `${busy} seconds`, inline: true},
 
 		{ name: 'Fullness', value: `${pet.hunger}`, inline: true },
 		{ name: 'Hydration', value: `${pet.thirst}`, inline: true },
