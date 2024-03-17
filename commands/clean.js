@@ -10,12 +10,11 @@ module.exports = {
     async execute(interaction){
         const userId  = interaction.user.id;
         const getPet = await pets.get(userId);
-        let result = '';
         getPet.cleanliness = 10;
-        result = "Pet has been washed!";
+        let result = "Pet has been washed!";
         await pets.set(userId,getPet)
         let petEmbed = await embed(interaction);
-        await interaction.reply(result);
-        await interaction.followUp(petEmbed);
+        petEmbed.content = result;
+        await interaction.reply(petEmbed);
     }
 }
