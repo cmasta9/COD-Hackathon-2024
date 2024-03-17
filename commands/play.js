@@ -14,15 +14,16 @@ module.exports = {
             pet.energy -= 10;
             pet.exp += 5;
             pet.happiness += 1;
+            pet.cleanliness -= 1;
             result = `${pet.nickname} had fun playing with you!`;
-            pets.set(interaction.user.id,pet);
+            await pets.set(interaction.user.id,pet);
         }
         else{
             result = `${pet.nickname} is too tired to play.`;
         }
         
         let petEmbed = await embed(interaction);
-        await interaction.reply(result);
-        await interaction.followUp(petEmbed);
+        petEmbed.content = result;
+        await interaction.reply(petEmbed);
     }
 }
