@@ -1,6 +1,6 @@
 {
   "name": "disgotchi",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "description": "pet simulator discord bot",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "n"
+    "url": "https://github.com/cmasta9/COD-Hackathon-2024/tree/main"
   },
   "keywords": [
     "pet",
