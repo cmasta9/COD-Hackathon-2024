@@ -2,6 +2,8 @@ const {SlashCommandBuilder} = require('discord.js');
 const {pets} = require('../database.js');
 const {embed} = require('../embed.js');
 
+const sleepCD = 1200000; //cooldown time in milliseconds
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('sleep')
@@ -9,12 +11,12 @@ module.exports = {
     async execute(interaction){
         const userId  = interaction.user.id;
         const getPet = await pets.get(userId);
-        let result = '';
         getPet.energy = 100;
-        result = "Pet is sleeping!";
+        getPet.cooldown = Date.now() + sleepCD;
+        let result = "Pet is sleeping!";
         await pets.set(userId,getPet)
         let petEmbed = await embed(interaction);
-        await interaction.reply(result);
-        await interaction.followUp(petEmbed);
+        petEmbed.content = result;
+        await interaction.reply(petEmbed);
     }
 }
