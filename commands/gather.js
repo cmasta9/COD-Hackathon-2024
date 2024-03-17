@@ -2,6 +2,8 @@ const {SlashCommandBuilder} = require('discord.js');
 const {pets} = require('../database.js');
 const {embed} = require('../embed.js');
 
+const gatherCD = 300000; //cooldown time in MS
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('gather')
@@ -32,7 +34,7 @@ module.exports = {
             getPet.food += randNum;
             await interaction.followUp(`${getPet.nickname} has gathered ${randNum} food.`);
             getPet.cleanliness -= 1
-
+            getPet.cooldown = Date.now() + gatherCD;
             getPet.exp += 10;
             await pets.set(userId,getPet);
 
@@ -41,9 +43,8 @@ module.exports = {
             await interaction.reply('Gathering water...');
             getPet.water += randNum;
             await interaction.followUp(`${getPet.nickname} has gathered ${randNum} water.`);
-            getPet.exp += 10;
             getPet.cleanliness -= 1
-
+            getPet.cooldown = Date.now() + gatherCD;
             getPet.exp += 10;
             await pets.set(userId,getPet);
 
